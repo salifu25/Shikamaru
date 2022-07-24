@@ -43,7 +43,7 @@ public class ApplicantServiceImp {
             applicantRepository.save(newApplicant);
             return true;
         } catch (Exception ex) {
-            log.error("Failed to save Application with email " + ex.getMessage());
+            log.error("Failed to save Application " + ex.getMessage());
             return false;
         }
     }

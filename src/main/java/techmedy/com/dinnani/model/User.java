@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users extends AuditModel{
+public class User extends AuditModel{
     private String firstName;
     private String lastName;
     private String email;
