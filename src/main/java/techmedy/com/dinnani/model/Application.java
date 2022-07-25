@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
  */
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "application")
+@Table(name = "applications")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,4 +32,13 @@ public class Application extends AuditModel{
     private ApplicantParentInfo applicantParentInfo;
     @OneToMany
     private Set<ApplicantSiblingsInfo> applicantSiblingsInfo;
+    @OneToOne
+    private ApplicantSchools applicantSchools;
+    @OneToOne
+    private JHSResult jHSResult;
+    @OneToOne
+    private SHSResult sHSResult;
+    @OneToOne
+    private Documents supportingDocuments;
+            
 }

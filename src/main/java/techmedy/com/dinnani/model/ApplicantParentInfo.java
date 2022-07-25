@@ -38,4 +38,5 @@ public class ApplicantParentInfo extends AuditModel{
     private String guardianphone;
     
     
+    
 }

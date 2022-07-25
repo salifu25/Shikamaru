@@ -17,23 +17,20 @@ import lombok.NoArgsConstructor;
  *
  * @author hybof
  */
-
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "applicant_siblings_information")
+@Table(name = "applicant_jhs_result")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicantSiblingsInfo extends AuditModel{
+public class JHSResult extends AuditModel{
     
     @OneToOne
     private Applicant applicant;
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String educationalLevel;
-    @Lob
-    private byte[] educationSupportingDocument;
+    private String BECEIndexNumber;
+    private int BECEGrade;
+     @Lob
+    private byte[] BECECertificate;
     
     
 }
