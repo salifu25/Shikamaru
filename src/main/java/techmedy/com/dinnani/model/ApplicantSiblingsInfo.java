@@ -4,9 +4,8 @@
  */
 package techmedy.com.dinnani.model;
 
-import java.util.Set;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,18 +17,23 @@ import lombok.NoArgsConstructor;
  *
  * @author hybof
  */
+
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "application")
+@Table(name = "applicant_parent_information")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Application extends AuditModel{
+public class ApplicantSiblingsInfo extends AuditModel{
     
-    @OneToMany
-    private Applicant applicant;
     @OneToOne
-    private ApplicantParentInfo applicantParentInfo;
-    @OneToMany
-    private Set<ApplicantSiblingsInfo> applicantSiblingsInfo;
+    private Applicant applicant;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String educationalLevel;
+    @Lob
+    private byte[] educationSupportingDocument;
+    
+    
 }

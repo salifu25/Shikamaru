@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 public class Applicant extends AuditModel{
     
     private String firstName;
+    private String otherNames;
     private String lastName;
     private String email;
     private String phone;

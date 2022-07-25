@@ -58,6 +58,7 @@ public class ApplicantServiceImp {
             Applicant originalApplicant = result.get();
             originalApplicant.setEmail(updateApplicant.getEmail());
             originalApplicant.setFirstName(updateApplicant.getFirstName());
+            originalApplicant.setOtherNames(updateApplicant.getOtherNames());
             originalApplicant.setLastName(updateApplicant.getLastName());
             originalApplicant.setPhone(updateApplicant.getPhone());
             originalApplicant.setDob(updateApplicant.getDob());
