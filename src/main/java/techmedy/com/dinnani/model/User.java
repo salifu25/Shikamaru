@@ -5,9 +5,7 @@
  */
 package techmedy.com.dinnani.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;

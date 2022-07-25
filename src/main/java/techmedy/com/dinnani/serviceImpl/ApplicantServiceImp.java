@@ -60,6 +60,10 @@ public class ApplicantServiceImp {
             originalApplicant.setFirstName(updateApplicant.getFirstName());
             originalApplicant.setLastName(updateApplicant.getLastName());
             originalApplicant.setPhone(updateApplicant.getPhone());
+            originalApplicant.setDob(updateApplicant.getDob());
+            originalApplicant.setHomeTown(updateApplicant.getHomeTown());
+            originalApplicant.setRegion(updateApplicant.getRegion());
+            originalApplicant.setNationality(updateApplicant.getRegion());
             applicantRepository.save(originalApplicant);
             return true;
         } catch (Exception ex) {

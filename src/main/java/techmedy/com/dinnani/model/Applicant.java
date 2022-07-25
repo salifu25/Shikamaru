@@ -5,10 +5,8 @@
  */
 package techmedy.com.dinnani.model;
 
-import javax.management.relation.Role;
+import java.sql.Date;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,8 +31,11 @@ public class Applicant extends AuditModel{
     private String email;
     private String phone;
     private String password;
+    private Date dob;
+    private String homeTown;
+    private String region;
+    private String nationality;
     private Roles role = Roles.APPLICANT;
-    @OneToOne
-    private Application application;
+   
     
 }
