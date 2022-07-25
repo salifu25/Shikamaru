@@ -38,6 +38,7 @@ public class Documents extends AuditModel{
     @Lob
     private byte[] birthCertificate;
     @Lob
-    private byte[] admissionLetter;
+    private byte[] previousSponsorDetails;
+    
     
 }

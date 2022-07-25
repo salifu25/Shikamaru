@@ -40,5 +40,11 @@ public class Application extends AuditModel{
     private SHSResult sHSResult;
     @OneToOne
     private Documents supportingDocuments;
+    @OneToMany
+    private Set<SchoolsAdmittedTo> schoolsAdmittedTo;
+    @OneToOne
+    private ApplicantFinancialInformation applicantFinancialInformation;
+    @OneToOne
+    private ApplicantStatement applicantStatement;
             
 }
