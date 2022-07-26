@@ -4,9 +4,13 @@
  */
 package techmedy.com.dinnani.serviceImpl;
 
+import java.util.Date;
 import java.util.Optional;
+
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import techmedy.com.dinnani.model.User;
 import techmedy.com.dinnani.repo.UserRepository;
@@ -17,12 +21,15 @@ import techmedy.com.dinnani.repo.UserRepository;
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class UsersServiceImpl {
-    
+
     @Autowired
     private UserRepository usersRepository;
-    
-     public User FindUserByEmail(String email) {
+
+    private  final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public User FindUserByEmail(String email) {
         User user = null;
         try {
             Optional<User> result = usersRepository.findByEmail(email);
@@ -40,6 +47,7 @@ public class UsersServiceImpl {
 
     public boolean CreateUser(User newUser) {
         try {
+            newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
             usersRepository.save(newUser);
             return true;
         } catch (Exception ex) {
@@ -77,12 +85,21 @@ public class UsersServiceImpl {
             return false;
         }
     }
-    
-    public boolean updatePassword(){
-        
-       // to be handled by Baba
-        return true;
-    }
 
-    
+    public boolean updatePassword(User user,String email) {
+        // to be handled by Baba
+        try {
+            User Existinguser = usersRepository.findByEmail(email).orElse(null);
+            Existinguser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            usersRepository.save(Existinguser);
+            log.info("password update successful " + user.getPassword());
+            Date date = new Date();
+            System.out.println(date);
+            return true;
+        } catch (Exception e) {
+            log.error("user not found" + e.getMessage());
+            return false;
+        }
+
+    }
 }

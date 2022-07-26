@@ -5,8 +5,11 @@
 package techmedy.com.dinnani.serviceImpl;
 
 import java.util.Optional;
+
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import techmedy.com.dinnani.model.Applicant;
 import techmedy.com.dinnani.repo.ApplicantRepository;
@@ -17,10 +20,14 @@ import techmedy.com.dinnani.repo.ApplicantRepository;
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class ApplicantServiceImp {
 
     @Autowired
     ApplicantRepository applicantRepository;
+
+    private  final BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     public Applicant FindApplicantByEmail(String email) {
         Applicant applicant = null;
@@ -40,6 +47,8 @@ public class ApplicantServiceImp {
 
     public boolean CreateApplicant(Applicant newApplicant) {
         try {
+            String EncodedPassword = bCryptPasswordEncoder.encode(newApplicant.getPassword());
+            newApplicant.setPassword(EncodedPassword);
             applicantRepository.save(newApplicant);
             return true;
         } catch (Exception ex) {
@@ -82,11 +91,18 @@ public class ApplicantServiceImp {
             return false;
         }
     }
-    
-    public boolean updatePassword(){
-        
-       // to be handled by Baba
-        return true;
+
+    public boolean updatePassword(Applicant existingApplicant,String email){
+        try {
+            Applicant ExistingApplicant = applicantRepository.findByEmail(email).orElse(null);
+            ExistingApplicant.setPassword(bCryptPasswordEncoder.encode(existingApplicant.getPassword()));
+            applicantRepository.save(ExistingApplicant);
+            log.info("password update successful " + existingApplicant.getPassword());
+            return true;
+        } catch (Exception e) {
+            log.error("user not found" + e.getMessage());
+            return false;
+        }
     }
 
 }
