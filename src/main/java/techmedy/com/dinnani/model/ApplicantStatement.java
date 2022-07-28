@@ -28,6 +28,6 @@ public class ApplicantStatement extends AuditModel{
     @OneToOne
     private Applicant applicant;
     @Lob
-    private String applicantStatment;
+    private String applicantStatement;
     
 }

@@ -29,23 +29,23 @@ public class ApplicantSchools extends AuditModel{
     private String primarySchoolName;
     private String primarySchoolTown;
     private String primarySchoolAttendancePeriod;
-    private String primarySchoolSponor;
+    private String primarySchoolSponsor;
     
     private String jhsName;
     private String jhsTown;
     private String jhsAttendancePeriod;
-    private String jhsSponor;
+    private String jhsSponsor;
     
 
     private String shsName;
     private String shsTown;
     private String shsAttendancePeriod;
-    private String shsSponor;
+    private String shsSponsor;
     
     private String otherSchoolName;
     private String otherSchoolTown;
     private String otherSchoolAttendancePeriod;
-    private String otherSchoolSponor;
+    private String otherSchoolSponsor;
     
 
     

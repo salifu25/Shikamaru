@@ -28,8 +28,8 @@ public class ApplicantFinancialInformation extends AuditModel{
     @OneToOne
     private Applicant applicant;
     private double amountFromParents;
-    private double amountFromFmailyMembers;
-    private double amountFromstudentLoanTrust;
+    private double amountFromFamilyMembers;
+    private double amountFromStudentLoanTrust;
     private double amountFromOtherScholarships;
     private double amountFromOtherSources;
     private double admissionFee;

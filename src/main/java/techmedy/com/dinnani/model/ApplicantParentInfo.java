@@ -30,12 +30,12 @@ public class ApplicantParentInfo extends AuditModel{
     private String motherFullName;
     private String motherOccupation;
     private String motherPhone;
-    private String faherFullName;
+    private String fatherFullName;
     private String fatherOccupation;
     private String fatherPhone;
     private String guardianFullName;
     private String guardianOccupation;
-    private String guardianphone;
+    private String guardianPhone;
     
     
     

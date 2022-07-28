@@ -4,11 +4,10 @@
  */
 package techmedy.com.dinnani.model;
 
+import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Application extends AuditModel{
     
-    @OneToMany
+    @ManyToOne
     private Applicant applicant;
     @OneToOne
     private ApplicantParentInfo applicantParentInfo;
